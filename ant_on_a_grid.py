@@ -53,8 +53,9 @@ class AntOnAGrid:
                 # If the ant is on a white square, change the square to black
                 ant.fillcolor('black')
 
-                # Add the black square to the grid
+                # Add the black square to the window screen
                 ant.stamp()
+                # Update the grid dictionary to keep track of which squares are black
                 self.change_square_color(grid, ant, 'black')
 
                 # If the ant is on a white square, turn clockwise 90 degrees and move forward
@@ -68,9 +69,12 @@ class AntOnAGrid:
 
                 # If the ant is on a black square, change the square to white
                 ant.fillcolor('white')
+
+                # Add the white square to the window screen
+                ant.stamp()
+                # Update the grid dictionary to keep track of which squares are white
                 self.change_square_color(grid, ant, 'white')
 
-                ant.stamp()
                 # If the ant is on a black square, turn counter-clockwise 90 degrees and move forward
                 ant.left(90)
                 ant.forward(step)
@@ -80,7 +84,7 @@ class AntOnAGrid:
 
     def change_square_color(self, grid: dict, ant: turtle.Turtle, color: str):
         """
-        Change the color of the square the ant is on and update the grid.
+        Updates the grid dictionary to keep track of which coordinates have black or white squares
 
         Args:
             grid (dict): Dictionary to track square colors on the grid
